@@ -1,5 +1,6 @@
 from abc import ABCMeta
 from abc import abstractmethod
+from itertools import cycle
 
 
 class BarMarker(metaclass=ABCMeta):
@@ -46,8 +47,29 @@ class Rectangle(BarMarker):
         return "\u25ae"
 
 
+class Bar(BarMarker):
+
+    @property
+    def empty(self) -> str:
+        return "\u2582"
+
+    @property
+    def filled(self) -> str:
+        return "\u2587"
+
+
 BAR_MARKERS = {
     "asterisk": Asterisk(),
     "square": Square(),
     "rectangle": Rectangle(),
+    "bar": Bar()
 }
+
+SPINNER = cycle(
+    [
+        "\u25D0",
+        "\u25D1",
+        "\u25D2",
+        "\u25D3",
+    ]
+)
