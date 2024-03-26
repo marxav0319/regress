@@ -7,5 +7,5 @@ setup(
     author="Mark Xavier",
     author_email="mark.j.xavier@gmail.com",
     packages=["regress"],
-
+    license="MIT"
 )
